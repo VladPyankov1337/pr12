@@ -1,5 +1,5 @@
 <?php
-	$mysqli = new mysqli('127.0.0.1', 'root', '', 'security');
+	$mysqli = new mysqli('localhost', 'root', '', 'security');
 	
 	function getClientIP() {
         if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
@@ -13,7 +13,7 @@
     }
     $user_ip = getClientIP();
 
-	setcookie("IP", $user_ip);
+	setcookie("IP", $user_ip, time() + 3600, "/", "", true, true);
 
-	setcookie("Datetime", date("Y-m-d H:i:s"));
+	setcookie("Datetime", date("Y-m-d H:i:s"), time() + 3600, "/", "", true, true);
 ?>
